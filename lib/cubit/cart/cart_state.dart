@@ -5,13 +5,12 @@ abstract class CartState {}
 
 class CartInitial extends CartState {}
 
-
 class CartLoaded extends CartState {
-  final List<Product> cart;
+  final List<CartProduct> cart;
   int getTotalPrice() {
     int result = 0;
-    for (var product in cart) {
-      result += product.price;
+    for (var cartProduct in cart) {
+      result += cartProduct.product.price;
     }
     return result;
   }

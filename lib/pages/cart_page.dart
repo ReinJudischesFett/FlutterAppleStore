@@ -43,7 +43,7 @@ class CartPage extends StatelessWidget {
                                     child: AspectRatio(
                                       aspectRatio: 1,
                                       child: Image.network(
-                                        state.cart[index].image,
+                                        state.cart[index].product.image,
                                       ),
                                     ),
                                   ),
@@ -51,7 +51,8 @@ class CartPage extends StatelessWidget {
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Text(state.cart[index].name),
+                                      Text(state.cart[index].product.name),
+                                      Text(state.cart[index].selectedStorage),
                                       ElevatedButton(
                                         onPressed: () =>
                                             BlocProvider.of<CartCubit>(context)

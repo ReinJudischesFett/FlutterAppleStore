@@ -1,6 +1,7 @@
 import 'package:apple_store/cubit/cart/cart_cubit.dart';
 import 'package:apple_store/cubit/categories/categories_cubit.dart';
-import 'package:apple_store/pages/home_page.dart';
+import 'package:apple_store/cubit/product/product_cubit.dart';
+import 'package:apple_store/pages/home_page/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -10,7 +11,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key}); 
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +24,10 @@ class MyApp extends StatelessWidget {
         BlocProvider<CategoriesCubit>(
           lazy: false,
           create: (_) => CategoriesCubit(),
+        ),
+        BlocProvider<ProductCubit>(
+          lazy: false,
+          create: (_) => ProductCubit(),
         ),
       ],
       child: MaterialApp(

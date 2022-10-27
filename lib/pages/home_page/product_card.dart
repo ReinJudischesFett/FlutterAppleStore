@@ -1,8 +1,6 @@
 import 'package:apple_store/data/product_model.dart';
-import 'package:apple_store/pages/product_page.dart';
+import 'package:apple_store/pages/product_page/product_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class ProductCard extends StatelessWidget {
   final Product product;
@@ -84,7 +82,7 @@ class ProductCard extends StatelessWidget {
         Container(
           decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: Colors.amber[100],
+              color: Colors.amber[200],
               border: Border.all()),
           height: 12,
           width: 12,
@@ -95,7 +93,7 @@ class ProductCard extends StatelessWidget {
         Container(
           decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: Colors.deepPurple[300],
+              color: Colors.deepPurple[200],
               border: Border.all()),
           height: 12,
           width: 12,

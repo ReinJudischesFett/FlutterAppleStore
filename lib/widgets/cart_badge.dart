@@ -27,7 +27,7 @@ class CartBadge extends StatelessWidget {
                 ),
               );
             },
-            icon: const Icon(Icons.shopping_cart),
+            icon: const Icon(Icons.work, color: Colors.black,),
           ),
         );
       },

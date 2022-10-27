@@ -4,5 +4,10 @@ class Product {
   final int price;
   final String category;
 
-  Product(this.name, this.price, this.image, this.category);
+  Product(
+    this.name,
+    this.price,
+    this.image,
+    this.category,
+  );
 }

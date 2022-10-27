@@ -1,6 +1,6 @@
+import 'package:apple_store/pages/home_page/categories.dart';
+import 'package:apple_store/pages/home_page/products_list.dart';
 import 'package:apple_store/widgets/cart_badge.dart';
-import 'package:apple_store/widgets/categories.dart';
-import 'package:apple_store/widgets/products_list.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
