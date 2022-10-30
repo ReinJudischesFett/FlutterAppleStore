@@ -1,5 +1,6 @@
 import 'package:apple_store/data/product_model.dart';
 import 'package:apple_store/pages/product_page/product_page.dart';
+import 'package:apple_store/widgets/product_image.dart';
 import 'package:flutter/material.dart';
 
 class ProductCard extends StatelessWidget {
@@ -20,28 +21,16 @@ class ProductCard extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(20),
         margin: const EdgeInsets.all(5),
+        height: 160,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(8),
         ),
         child: Row(
           children: [
-            Container(
-              padding: const EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                color: Colors.grey[350],
-              ),
-              height: 100,
-              child: AspectRatio(
-                aspectRatio: 1,
-                child: Image.network(
-                  product.image,
-                ),
-              ),
-            ),
+            ProductImage(product.image),
             const SizedBox(
-              width: 40,
+              width: 30,
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -59,9 +48,7 @@ class ProductCard extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    const SizedBox(
-                      width: 120,
-                    ),
+                    
                     Text(
                       '${product.price} \$',
                       style: const TextStyle(fontSize: 18),

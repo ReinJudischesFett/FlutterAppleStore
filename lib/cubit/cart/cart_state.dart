@@ -10,7 +10,7 @@ class CartLoaded extends CartState {
   int getTotalPrice() {
     int result = 0;
     for (var cartProduct in cart) {
-      result += cartProduct.product.price;
+      result += cartProduct.finalPrice;
     }
     return result;
   }

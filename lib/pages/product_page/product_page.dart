@@ -3,7 +3,7 @@
 import 'package:apple_store/cubit/cart/cart_cubit.dart';
 import 'package:apple_store/cubit/product/product_cubit.dart';
 import 'package:apple_store/data/product_model.dart';
-import 'package:apple_store/pages/cart_page.dart';
+import 'package:apple_store/pages/cart_page/cart_page.dart';
 import 'package:apple_store/pages/product_page/color_picker.dart';
 import 'package:apple_store/pages/product_page/storage_picker.dart';
 import 'package:apple_store/widgets/cart_badge.dart';
@@ -91,7 +91,7 @@ class ProductPage extends StatelessWidget {
                           onTap: () {
                             BlocProvider.of<CartCubit>(context).addItemToCart(
                               product,
-                              state.selectedColor.toString(),
+                              state.selectedColor,
                               state.selectedStorage,
                             );
                           },

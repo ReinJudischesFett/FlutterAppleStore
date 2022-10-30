@@ -1,5 +1,5 @@
 import 'package:apple_store/cubit/cart/cart_cubit.dart';
-import 'package:apple_store/pages/cart_page.dart';
+import 'package:apple_store/pages/cart_page/cart_page.dart';
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';

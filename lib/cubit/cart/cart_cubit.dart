@@ -1,3 +1,4 @@
+import 'package:apple_store/config/storage_size.dart';
 import 'package:apple_store/data/cart_product_model.dart';
 import 'package:apple_store/data/product_model.dart';
 import 'package:bloc/bloc.dart';
@@ -11,9 +12,30 @@ class CartCubit extends Cubit<CartState> {
   CartCubit() : super(CartInitial());
 
   void addItemToCart(
-      Product product, String selectedColor, String selectedStorage) {
-    cartProducts.add(CartProduct(product, selectedColor, selectedStorage));
+      Product product, Color selectedColor, String selectedStorage) {
+    final finalPrice = product.price + getAddedPrice(selectedStorage);
+    cartProducts.add(
+      CartProduct(
+        product,
+        selectedColor,
+        selectedStorage,
+        finalPrice,
+      ),
+    );
     emit(CartLoaded(cartProducts));
+  }
+
+  int getAddedPrice(String selectedStorage) {
+    switch (selectedStorage) {
+      case storage256:
+        return 100;
+      case storage512:
+        return 200;
+      case storage1024:
+        return 300;
+      default:
+        return 0;
+    }
   }
 
   void removeItemFromCart(CartProduct cartProduct) {

@@ -20,12 +20,6 @@ class DataBase {
       'https://res.cloudinary.com/shufersal/image/upload/f_auto,q_auto/v1551800922/prod/product_images/products_zoom/IDJ44_Z_P_7290106708310_1.png',
       'iphone',
     ),
-    Product(
-      'Apple watch s7',
-      399,
-      'https://www.telecomarmenia.am/eshop/images/product/6/16388631531068.png',
-      'apple watch',
-    )
   ];
   List<Product> get productList => _productList;
 }
