@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:apple_store/cubit/categories/categories_cubit.dart';
 import 'package:flutter/material.dart';
@@ -11,22 +11,81 @@ class Categories extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<CategoriesCubit, CategoriesState>(
       builder: (context, state) {
-        return Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            categoryChip(context, state, 'mac'),
-            SizedBox(
-              width: 10,
+            Row(
+              children: [
+                SizedBox(width: 15),
+                Text('Select category', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+              ],
             ),
-            categoryChip(context, state, 'iphone'),
-            SizedBox(
-              width: 10,
+            SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                SizedBox(width: 10),
+                GestureDetector(
+                  onTap: () {},
+                  child: Chip(
+                    backgroundColor: Colors.white,
+                    label: Column(
+                      children: [
+                        Icon(Icons.laptop_mac),
+                        Text('mac'),
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                GestureDetector(
+                  onTap: () {},
+                  child: Chip(
+                    backgroundColor: Colors.white,
+                    label: Column(
+                      children: [
+                        Icon(Icons.phone_iphone),
+                        Text('iphone'),
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                GestureDetector(
+                  onTap: () {},
+                  child: Chip(
+                    backgroundColor: Colors.white,
+                    label: Column(
+                      children: [
+                        Icon(Icons.tablet_mac),
+                        Text('ipad'),
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                GestureDetector(
+                  onTap: () {},
+                  child: Chip(
+                    backgroundColor: Colors.white,
+                    label: Column(
+                      children: [
+                        Icon(Icons.watch),
+                        Text('watch'),
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(width: 10),
+
+              ],
             ),
-            categoryChip(context, state, 'ipad'),
-            SizedBox(
-              width: 10,
-            ),
-            categoryChip(context, state, 'apple watch'),
           ],
         );
       },
@@ -51,8 +110,12 @@ class Categories extends StatelessWidget {
         }
       },
       child: Chip(
-        backgroundColor: chipColor,
-        label: Text(categoryName),
+        label: Column(
+          children: [
+            Icon(Icons.laptop),
+            Text('mac'),
+          ],
+        ),
       ),
     );
   }

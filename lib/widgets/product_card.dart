@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 class ProductCard extends StatelessWidget {
   final Product product;
-  const ProductCard({super.key, required this.product});
+  const ProductCard(this.product, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +48,6 @@ class ProductCard extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    
                     Text(
                       '${product.price} \$',
                       style: const TextStyle(fontSize: 18),

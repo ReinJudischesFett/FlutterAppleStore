@@ -29,6 +29,7 @@ class CartPage extends StatelessWidget {
               : Center(
                   child: Text('no items'),
                 ),
+                
           bottomNavigationBar: Container(
             height: 90,
             padding: EdgeInsets.only(left: 20, right: 20),

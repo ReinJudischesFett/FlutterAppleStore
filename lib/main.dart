@@ -1,6 +1,7 @@
 import 'package:apple_store/cubit/cart/cart_cubit.dart';
 import 'package:apple_store/cubit/categories/categories_cubit.dart';
 import 'package:apple_store/cubit/product/product_cubit.dart';
+import 'package:apple_store/cubit/search/search_cubit.dart';
 import 'package:apple_store/pages/home_page/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -29,6 +30,10 @@ class MyApp extends StatelessWidget {
           lazy: false,
           create: (_) => ProductCubit(),
         ),
+        BlocProvider<SearchCubit>(
+          lazy: false,
+          create: (_) => SearchCubit(),
+        )
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
