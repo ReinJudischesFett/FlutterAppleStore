@@ -10,6 +10,8 @@ import 'package:apple_store/widgets/cart_badge.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'animated_image.dart';
+
 class ProductPage extends StatelessWidget {
   final scrollController = ScrollController();
   final Product product;
@@ -34,17 +36,10 @@ class ProductPage extends StatelessWidget {
             backgroundColor: Colors.grey[350],
             title: Text(
               product.name,
-              style: TextStyle(
-                color: Colors.black,
-              ),
-            ),
-            iconTheme: IconThemeData(
-              color: Colors.black,
             ),
             actions: const [
               CartBadge(),
             ],
-            elevation: 0,
           ),
           body: SingleChildScrollView(
             controller: scrollController,
@@ -52,14 +47,8 @@ class ProductPage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Container(
-                  alignment: Alignment.center,
-                  height: 450,
-                  child: Image.network(
-                    product.image,
-                  ),
-                ),
-                const SizedBox(height: 50),
+                AnimatedImage(),
+                const SizedBox(height: 5),
                 Container(
                   padding: EdgeInsets.only(left: 20, right: 20),
                   decoration: const BoxDecoration(
@@ -69,7 +58,7 @@ class ProductPage extends StatelessWidget {
                     ),
                     color: Colors.white,
                   ),
-                  height: 900,
+                  height: 340,
                   width: double.infinity,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -81,32 +70,29 @@ class ProductPage extends StatelessWidget {
                       SizedBox(
                         height: 30,
                       ),
-                      if (state is ProductStage1 || state is ProductStage2)
-                        StoragePicker(),
-                      SizedBox(
-                        height: 100,
-                      ),
-                      if (state is ProductStage2)
-                        GestureDetector(
-                          onTap: () {
-                            BlocProvider.of<CartCubit>(context).addItemToCart(
-                              product,
-                              state.selectedColor,
-                              state.selectedStorage,
-                            );
-                          },
-                          child: Container(
-                            alignment: Alignment.center,
-                            height: 80,
-                            width: double.infinity,
-                            decoration: BoxDecoration(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(20)),
-                              border: Border.all(color: Colors.grey),
-                            ),
-                            child: Text('Add to bag'),
-                          ),
-                        ),
+                      StoragePicker(),
+                      SizedBox(height: 40),
+                      state is ProductStage2
+                          ? GestureDetector(
+                              onTap: () => BlocProvider.of<CartCubit>(context)
+                                  .addItemToCart(
+                                product,
+                                state.selectedColor,
+                                state.selectedStorage,
+                              ),
+                              child: Container(
+                                alignment: Alignment.center,
+                                height: 50,
+                                width: double.infinity,
+                                decoration: BoxDecoration(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(20)),
+                                  border: Border.all(color: Colors.black),
+                                ),
+                                child: Text('Add to bag'),
+                              ),
+                            )
+                          : Text('')
                     ],
                   ),
                 ),

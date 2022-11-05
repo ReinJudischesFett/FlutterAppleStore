@@ -17,14 +17,15 @@ class HomePage extends StatelessWidget {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.location_pin, color: Colors.black),
+            Icon(Icons.location_pin),
             SizedBox(width: 5),
             Text(
               'choose your country',
-              style: TextStyle(color: Colors.black),
+              style: TextStyle(fontSize: 18),
             ),
           ],
         ),
+        centerTitle: true,
         backgroundColor: Colors.grey[350],
         elevation: 0,
         actions: const [
@@ -45,7 +46,9 @@ class HomePage extends StatelessWidget {
             Row(
               children: const [
                 SizedBox(width: 20),
-                Text('All items', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+                Text('All items',
+                    style:
+                        TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
               ],
             ),
             const SizedBox(

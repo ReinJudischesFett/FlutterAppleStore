@@ -13,10 +13,7 @@ class CartPage extends StatelessWidget {
     return BlocBuilder<CartCubit, CartState>(
       builder: (_, state) {
         return Scaffold(
-          appBar: AppBar(
-            backgroundColor: Colors.grey[350],
-            elevation: 0,
-          ),
+          appBar: AppBar(),
           body: state is CartLoaded
               ? ListView.builder(
                   physics: AlwaysScrollableScrollPhysics(),
@@ -29,7 +26,6 @@ class CartPage extends StatelessWidget {
               : Center(
                   child: Text('no items'),
                 ),
-                
           bottomNavigationBar: Container(
             height: 90,
             padding: EdgeInsets.only(left: 20, right: 20),

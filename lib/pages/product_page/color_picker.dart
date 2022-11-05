@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:apple_store/cubit/product/product_cubit.dart';
 import 'package:flutter/material.dart';
@@ -17,26 +17,19 @@ class _ColorPickerState extends State<ColorPicker> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text('Pick your favourite', style: TextStyle(fontSize: 25)),
-        SizedBox(height: 20),
-        //TODO row 
-        Text('Color - Silver'),
-        SizedBox(height: 30),
+        Row(
+          children: [
+            SizedBox(width: 15,),
+            Text('Color: ', style: TextStyle(fontSize: 18),),
+          ],
+        ),
+        SizedBox(height: 20,),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             colorDot(gold, context),
-            const SizedBox(
-              width: 15,
-            ),
             colorDot(deepPurple, context),
-            const SizedBox(
-              width: 15,
-            ),
             colorDot(silver, context),
-            const SizedBox(
-              width: 15,
-            ),
             colorDot(spaceBlack, context),
           ],
         ),
@@ -60,13 +53,14 @@ class _ColorPickerState extends State<ColorPicker> {
     return GestureDetector(
       onTap: () {
         BlocProvider.of<ProductCubit>(context).colorChosen(color);
-        // stage 1 - border color, change image, scroll, put color in model
+        // stage 1 - border color, change image, put color in model
       },
-      child: Container( 
+      child: Container(
         decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: color,
-            border: Border.all(color: borderColor!, width: 2.0),),
+          shape: BoxShape.circle,
+          color: color,
+          border: Border.all(color: borderColor!, width: 2.0),
+        ),
         height: 50,
         width: 50,
       ),
